@@ -1,0 +1,110 @@
+<!-- SLIDER -->
+<!-- <slick infinite="true" slides-to-show="1" slides-to-scroll="1" fade="true" l autoplay="true" append-arrows="true" dots="true">
+  <div>
+    <div class="header-text">
+      <div class="container">
+        <div class="row center">
+          <h4 class="white-text light">You can download app<br> on your android device <br>by scanning QR code</h4>
+        </div>
+        <br>
+      </div>
+    </div>
+    <img src="img/first-slide-back.png" alt="">
+  </div>
+    <div>
+    <div class="header-text">
+      <div class="container">
+        <div class="row center">
+          <h4 class="white-text light">Download<br> best free apps<br>without any accounts</h4></div>
+      </div>
+    </div>
+    <img src="img/second-slide-backt.png" alt="">
+    </div>
+    <div>
+    <div class="header-text">
+      <div class="container">
+        <div class="row center">
+          <h4 class="white-text light">Rate post and share<br> free apps with friends<br></h4></div>
+      </div>
+    </div>
+    <img src="img/third-slide-back.jpg" alt="">
+    </div>
+</slick> -->
+<div class="slider" slider>
+  <ul class="slides">
+    <li>
+      <img src="img/first-slide-back.png" alt="">
+      <div class="header-text">
+        <div class="container">
+          <div class="row center">
+            <h4 class="white-text light">You can download app<br> on your android device <br>by scanning QR code</h4>
+          </div>
+          <br>
+        </div>
+      </div>
+    </li>
+    <li>
+      <img src="img/second-slide-backt.png" alt="">
+      <div class="header-text">
+        <div class="container">
+          <div class="row center">
+            <h4 class="white-text light">Download<br> best free apps<br>without any accounts</h4></div>
+        </div>
+      </div>
+    </li>
+    <li>
+      <img src="img/third-slide-back.jpg" alt="">
+      <div class="header-text">
+        <div class="container">
+          <div class="row center">
+            <h4 class="white-text light">Rate post and share<br> free apps with friends<br></h4></div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+<!-- WELCOME TEXT -->
+<div class="container">
+  <div class="col s12 row center flow-text">
+    <h1 class="center orange-text">FreeApp Project</h1>
+  </div>
+  <div class="row center">
+    <h5 class="header col s12 light">Welcome to FreeApp project. Here you can find and download the most interesting apps for your android device</h5>
+  </div>
+  <div class="row center">
+    <a class="btn btn-large waves-effect waves-light orange" data-target='start-modal' modal>
+            Get Started</a>
+    <br>
+    <br>
+  </div>
+</div>
+<!-- POSTS -->
+<div class="container">
+  <div class="row">
+    <div class="col s12 m6 l4 xl3" dir-paginate="card in cards| itemsPerPage: pageSize | filter:q">
+      <div class="card">
+        <a href="#/id/{{card._id.$oid}}" ng-click="getId(this)">
+          <div class="card-image waves-effect waves-block waves-light">
+            <p class="category">{{card.category}}</p>
+            <img ng-src="{{card.img}}">
+          </div>
+        </a>
+        <div class="rate_background">
+          <div id="rate_bar" style="width:{{card.rateResult}}"></div>
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">{{card.title}}<i class="material-icons right">more_vert</i></span>
+          <a href="#/id/{{card._id.$oid}}" class="waves-effect waves-light btn">Read More</a>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">{{card.title}}<i class="material-icons right">close</i></span>
+          <p>{{card.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row center">
+    <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)">
+    </dir-pagination-controls>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+<!-- ADD POST -->
+<div class="container">
+  <div class="col s12 m6">
+    <div class="horizontal">
+      <div class="addcard card">
+        <h2 class="center">Add Post</h2>
+        <div class="card-stacked">
+          <div class="card-content">
+            <div class="modal-content">
+              <form class="col s12" id="postForm">
+                <div class="row">
+                  <div class="input-field col s12 m6">
+                    <input id="title" type="text" class="validate" ng-model="newCard.title">
+                    <label for="title">Title</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12 m6">
+                    <input id="description" type="text" class="validate" ng-model="newCard.description">
+                    <label for="description">Description</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12 m6">
+                    <input id="image" type="text" class="validate" ng-model="newCard.img">
+                    <label for="image">Image</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12 m6">
+                    <input id="backImg" type="text" class="validate" ng-model="newCard.back">
+                    <label for="backImg">Background image</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12 m6">
+                    <input id="category" type="text" class="validate" ng-model="newCard.category">
+                    <label for="category">Category</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12 m6">
+                    <input id="version" type="text" class="validate" ng-model="newCard.version">
+                    <label for="version">Android version</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12 m6">
+                    <input id="source" type="text" class="validate" ng-model="newCard.source">
+                    <label for="source">Source</label>
+                  </div>
+                </div>
+                <a class="modal-action modal-close waves-effect waves-green btn-flat">
+                  <button class="btn waves-effect waves-light" type="submit" name="action" ng-click="addApp()">Submit
+                    <i class="material-icons right">send</i>
+                  </button>
+                </a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

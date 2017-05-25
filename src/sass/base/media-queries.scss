@@ -1,0 +1,70 @@
+@media only screen and (max-width: 968px) {
+  .sign-modal {
+    width: 60%;
+  }
+}
+
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  tr {
+    border: 1px solid #ccc;
+  }
+  td {
+    border: none!important;
+    width: 100%!important;
+    position: relative;
+    padding-left: 5%;
+  }
+  td:before {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .slider {
+    top: 50px;
+  }
+  .sign-modal {
+    width: 90%;
+    min-width: 265px;
+  }
+  .control .btn-material {
+    top: 8px;
+  }
+  .search-input {
+    left: 0;
+    input {
+      font-size: 2em;
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .big-card h1 {
+    font-size: 2.3em;
+  }
+  .header-text h4 {
+    font-size: 1.6em;
+    padding: 0 10px;
+    word-wrap: break-word;
+  }
+}

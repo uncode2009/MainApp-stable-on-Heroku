@@ -1,0 +1,35 @@
+
+.big-card {
+  padding: 20px;
+  margin: -200px auto 100px;
+  max-width: 960px;
+}
+.version p, i {
+  vertical-align: middle;
+}
+
+.back-btn {
+  margin-top: -47px;
+}
+.qrcode-img {
+  position: absolute;
+}
+
+.back-btn img {
+  cursor: pointer;
+  float: left;
+}
+.android-icon {
+  i {
+    color: #63e503;
+    margin-right: 10px;
+  }
+  width: 56px;
+  height: 56px;
+}
+.version p span {
+    text-transform: uppercase;
+    color: #039be5;
+    padding-left: 5px;
+    
+}

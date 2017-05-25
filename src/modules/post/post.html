@@ -1,0 +1,61 @@
+<!-- POST BACKGROUND-->
+<div class="cat-back" ng-style="{'background-image':'url('+post.back+')'}">
+</div>
+<!-- POST -->
+<div class="container">
+  <div class="card big-card">
+    <div class="row">
+      <div class="col m7 s12">
+        <div class="back-btn">
+          <a ng-click="doTheBack()" class="btn-floating btn-large waves-effecst waves-light red">
+            <i class="material-icons">arrow_back</i></a>
+        </div>
+        <h1>{{post.title}}</h1>
+        <div class="version block">
+          <p>
+            <a class="android-icon">
+              <i class="material-icons">android</i></a>{{post.version}}+ <span>{{post.category}}</span></p>
+        </div>
+      </div>
+      <div class="col qrcode m5 s12 right-align hide-on-small-only">
+        <qr text="qrstring" type-number="typeNumber" correction-level="correctionLevel" size="size" input-mode="inputMode" image="image"></qr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col m12 s12">
+        <p>{{post.description}}</p>
+      </div>
+    </div>
+    <!-- RATE -->
+    <div class="row">
+      <div class="col m12 s12">
+        <h4>Please rate this app</h4>
+        <div class="rating">
+          <div ng-repeat="star in starArr">
+          <input type="radio" id="{{star.id}}" ng-click="rate(this.star)" value="{{star.value}}"/>
+          <label for="{{star.id}}"></label>
+            
+          </div>
+
+
+
+          
+         <!--  <input type="radio" id="star4" name="rating"  ng-click="rate(this)" value="4"/>
+         <label for="star4"></label>
+         <input type="radio" id="star3" name="rating"  ng-click="rate(this)" value="3"/>
+         <label for="star3"></label>
+         <input type="radio" id="star2" name="rating"  ng-click="rate(this)" value="2"/>
+         <label for="star2"></label>
+         <input type="radio" id="star1" name="rating"  ng-click="rate(this)" value="1"/>
+         <label for="star1"></label> -->
+        </div>
+      </div>
+    </div>
+    <!-- RATE END -->
+    <div class="row">
+      <div class="col m6 s12">
+        <a href="{{post.source}}" class="waves-effect waves-light btn">Download</a>
+      </div>
+    </div>
+  </div>
+</div>

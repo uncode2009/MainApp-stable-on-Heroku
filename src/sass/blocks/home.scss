@@ -1,0 +1,215 @@
+
+$stars: 5;
+$star-size: 40px;
+$star-spacing: 2px;
+$star-on-color: #F9DF4A;
+$star-off-color: #CCCCCC;
+
+.icon-block {
+  padding: 0 15px;
+  .material-icons {
+    font-size: inherit;
+  }
+}
+
+.side-nav {
+  width: 200px !important;
+}
+
+.slicknav {
+  position: relative;
+  width: 100%;
+}
+
+.slick-slide img {
+  display: block;
+  min-width: 100%;
+  min-height: 40vh !important;
+}
+
+.slick-initialized .slick-slide {
+  display: block;
+  margin-top: 63px;
+}
+
+.slick-dots {
+  position: absolute;
+  bottom: 0px;
+  display: block;
+  width: 100%;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  li {
+    position: relative;
+    display: inline-block;
+    width: 26px;
+    height: 20px;
+    margin: 0 5px;
+    padding: 0;
+    cursor: pointer;
+    button:before {
+      font-family: 'slick';
+      font-size: 16px;
+      line-height: 20px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      content: '•';
+      text-align: center;
+      opacity: .25;
+      color: #000;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  }
+}
+
+.slick-dots li.slick-active button:before {
+  opacity: .75;
+  color: rgba(214, 211, 211, 0.72);
+}
+
+.slick-slider {
+  margin-bottom: 0;
+}
+h1 {
+    margin: 3.1rem 0 1.32rem 0;
+}
+.slider {
+  top: 64px;
+  min-height: 40vh !important;
+  .indicators {
+    bottom: 65px;
+    z-index: 995;
+    .indicator-item.active {
+      background-color: rgba(214, 211, 211, 0.72);
+    }
+    .indicator-item {
+      background-color: rgba(12, 12, 12, 0.27);
+      transition: background-color .3s;
+      border-radius: 50%;
+    }
+  }
+}
+
+.block {
+  display: inline-block;
+}
+
+.view {
+  min-height: 80vh;
+}
+
+.qr-block {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.carousel p {
+  color: #fff;
+  font-family: 'Dosis';
+  text-transform: uppercase;
+  margin: 10px 0 10px 0;
+}
+
+.header-text {
+  position: absolute;
+  text-align: center;
+  color: #fff;
+  font-family: 'Dosis';
+  text-transform: uppercase;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+nav ul a {
+  text-transform: uppercase;
+}
+
+.page-footer {
+  bottom: 0;
+}
+
+input[type=search] {
+  background: white;
+  height: 2.3rem;
+  color: #000;
+  padding: 0 5px;
+  &:focus:not([readonly]) {
+    border: none;
+    box-shadow: none;
+  }
+}
+
+nav ul li:nth-child(2) a:hover {
+  background: none;
+}
+ul:not(.browser-default) {
+
+    margin-right:50px;
+}
+/* ------RATING GEN---- */
+.rate_background {
+    position: relative;
+    margin: 0 auto;
+    width: 160px;
+    height: 32px;
+   background:url('../img/star_gray.png') repeat-x;
+}
+ #rate_bar {
+    position: absolute;
+    top: 0px;
+    left: 0px; 
+    height: 32px; 
+    background:url('../img/star_gold.png') repeat-x;
+}
+/* RATING POST */
+
+
+.rating {
+    width: 220px;
+    height: 40px;
+    padding: 5px 10px 55px;
+    background: #f9f9f9;
+
+  div label {
+    float: left;
+    position: relative;
+    width: $star-size;
+    height: $star-size;
+    cursor: pointer;
+    
+    &:not(:first-of-type) {
+      padding-right: $star-spacing;
+    }
+    
+    &:before {
+      content: "\2605";
+      font-size: $star-size + 2px;
+      color: $star-off-color;
+      line-height: 1;
+    }
+  }
+  
+ div input{
+    display: none;
+  }
+  [type="radio"]:not(:checked) + label,
+  input:checked ~ label:before,
+  &:not(:checked) > div label:hover:before,
+  &:not(:checked) > label:hover ~ label:before {
+    color: $star-on-color;
+  }
+  
+}
+
+[type="radio"]:not(:checked) + label:before, [type="radio"]:not(:checked) + label:after {
+    border: none;
+}

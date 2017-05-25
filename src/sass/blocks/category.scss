@@ -1,0 +1,39 @@
+.cat-back {
+  background-position: 0 20%;
+  background-size: cover;
+  text-align: center;
+  padding-top: 100px;
+  color: #fff;
+  h1 {
+    font-family: 'Dosis';
+    text-shadow: 2px 2px #676969;
+    text-transform: uppercase;
+  }
+}
+.back-img,
+.cat-back {
+    height: 400px;
+    overflow: hidden;
+}
+.back-img img,
+.category-back img {
+    min-width: 100%;
+    margin: -50% auto;
+    min-height: 100%;
+}
+
+.category-card {
+    margin: -150px auto 150px;
+}
+
+
+.category {
+    text-transform: uppercase;
+    text-align: center;
+    background: #afafaf;
+    display: block;
+    color: white;
+    margin: 0;
+    float: right;
+    padding: 0px 10px;
+}

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+  <title>FreeApp project - free apps for your android</title>
+  <!-- MATERIALIZE CSS -->
+  <link href="https://fonts.googleapis.com/css?family=Dosis|Josefin+Sans|Nunito|Quicksand" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../bower_components/slick-carousel/slick/slick.css">
+  <link rel="stylesheet" href="../bower_components/slick-carousel/slick/slick-theme.css">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="css/style.css" type="text/css" rel="stylesheet" />
+  <!-- BOWER COMPONENTS  -->
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
+  <script src="../bower_components/angular/angular.min.js"></script>
+  <script src="../bower_components/angular-materialize/src/angular-materialize.js"></script>
+  <script src="../bower_components/materialize/dist/js/materialize.js"></script>
+  <script src="../bower_components/angular-route/angular-route.js"></script>
+  <script src="../bower_components/qrcode/lib/qrcode.min.js"></script>
+  <script src="../bower_components/angular-qr/src/angular-qr.js"></script>
+  <script src="../bower_components/slick-carousel/slick/slick.js"></script>
+  <script src="../bower_components/angular-slick/dist/slick.js"></script>
+  <script src="../bower_components/angularUtils-pagination/dirPagination.js"></script>
+  <script src="../bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+  <!-- MAIN -->
+  <script src="app.module.js"></script>
+  <script src="app.service.js"></script>
+  <script src="app.controller.js"></script>
+  <script src="app.config.js"></script>
+  <script src="app.route.js"></script>
+  <script src="nav.controller.js"></script>
+  <!-- CATEGORY -->
+  <script src="modules/category.module.js"></script>
+  <script src="modules/category/category.service.js"></script>
+  <script src="modules/category/category.controller.js"></script>
+  <!-- POSTS -->
+  <script src="modules/post.module.js"></script>
+  <script src="modules/post/post.controller.js"></script>
+  <script src="modules/post/post.service.js"></script>
+  <!-- ADDPOSTS -->
+  <script src="modules/addpost.module.js"></script>
+  <script src="modules/addpost/addpost.controller.js"></script>
+  <script src="modules/addpost/addpost.service.js"></script>
+  <!-- AUTHORIZATION -->
+  <script src="modules/auth.module.js"></script>
+  <script src="modules/auth/sign-up/signup.service.js"></script>
+  <script src="modules/auth/sign-up/signup.controller.js"></script>
+  <script src="modules/auth/sign-in/signin.service.js"></script>
+  <script src="modules/auth/sign-in/signin.controller.js"></script>
+  <!-- ADMIN PAGE -->
+  <script src="modules/auth/adminpage/admin.controller.js"></script>
+  <script src="modules/auth/adminpage/admin.service.js"></script>
+  <!-- USER PAGE -->
+  <script src="modules/auth/userpage/user.controller.js"></script>
+  <script src="modules/auth/userpage/user.service.js"></script>
+  <!-- SEARCH -->
+  <script src="modules/search.module.js"></script>
+  <script src="modules/search/search.service.js"></script>
+  <script src="modules/search/search.controller.js"></script>
+</head>
+
+<body ng-app="materializeApp">
+  <!-- HEADER -->
+  <header>
+    <!-- MENU -->
+    <nav ng-controller="navController" class="navbar-fixed blue-grey darken-3" role="navigation">
+      <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">FreeApp</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#/">Home</a></li>
+          <li><a href="#/category/soft">Soft</a></li>
+          <li><a href="#/category/games">Games</a></li>
+          <li ng-hide="loggedUser"><a data-target='login-modal' modal>Log-In</a></li>
+          <li ng-show="loggedUser"><a href="#/admin"><i class="material-icons">account_circle</i></a></li>
+          <li ng-show="loggedUser"><a ng-click="signOut()">{{loggedUser[0].userName}}</a></li>
+        </ul>
+        <ul>
+          <li>
+            <!-- page content + floating button -->
+            <div class=' p-y-md'>
+              <div class='control' ng-click="zoom('open')">
+                <div class='btn-material'></div>
+                <i class='material-icons icon-material-search'>search</i>
+              </div>
+            </div>
+            <!-- full screen form controls -->
+            <i class='icon-close material-icons' ng-click="zoom('close')">close</i>
+            <div class='search-input'>
+              <input class='input-search' ng-model="search.name" placeholder='Start Typing' type='text'>
+              <a class="btn search-btn" href="#/search" ng-click="zoom()">SEARCH</a>
+            </div>
+          </li>
+        </ul>
+        <ul id="nav-mobile" class="side-nav">
+          <li ng-show="loggedUser"><a href="#/admin"><i class="material-icons">account_circle</i></a></li>
+          <li ng-show="loggedUser"><a ng-click="signOut()">{{loggedUser[0].userName}}</a></li>
+          <hr  ng-show="loggedUser">
+          <li><a href="#/">Home</a></li>
+          <li><a href="#/category/soft">Soft</a></li>
+          <li><a href="#/category/games">Games</a></li>
+          <li ng-hide="loggedUser"><a data-target='login-modal' modal>Log-In</a></li>
+        </ul>
+        <a href="#" class="button-collapse" data-activates="nav-mobile" data-sidenav="left" data-menuwidth="200" data-closeonclick="true">
+          <i class="material-icons">menu</i>
+        </a>
+      </div>
+    </nav>
+    <!-- START-MODAL -->
+    <div id="start-modal" class="modal sign-modal">
+      <div class="container">
+        <div class="col m12 s12">
+          <div class="modal-content">
+            <h4>How to</h4>
+            <p>Firstly you need to download app for scanning qr code.
+              <br> Follow the link below</p>
+            <p>Also you can post your own app, but ferore it you need to register</p>
+          </div>
+          <div class="modal-footer">
+            <a href="" class=" modal-action modal-close waves-effect waves-green btn">OK</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- SIGN-IN-MODAL -->
+    <div id="login-modal" class="modal sign-modal" ng-controller="signinController">
+      <div class="container">
+        <div class="col m12 s12">
+        </div>
+        <div class="modal-content center">
+          <h4>Sign-in</h4>
+          <div input-field>
+            <input type="text" ng-model="loginUser.userName">
+            <label>login</label>
+          </div>
+          <div input-field>
+            <input type="password" ng-model="loginUser.password">
+            <label>password</label>
+          </div>
+          <div>{{warning}}</div>
+        </div>
+        <div class="modal-footer ">
+          <a class=" modal-action left waves-effect waves-green btn " ng-click="login()">Sign-in</a>
+          <a data-target="signup-modal" modal class=" modal-action right modal-close waves-effect waves-green btn red ">Sign-up</a>
+        </div>
+      </div>
+    </div>
+    <!-- SIGN-UP-MODAL -->
+    <div ng-controller="signupController">
+      <div id="signup-modal" class="modal sign-modal">
+        <div class="container">
+          <div class="col m12 s12">
+          </div>
+          <div class="modal-content center">
+            <h4>Sign-up</h4>
+            <div input-field>
+              <input type="text" ng-model="newUser.firstName" length="50">
+              <label>First Name</label>
+            </div>
+            <div input-field>
+              <input type="text" ng-model="newUser.lastName" length="50">
+              <label>Last name</label>
+            </div>
+            <div input-field>
+              <input type="text" ng-model="newUser.userName" length="50">
+              <label>user name</label>
+            </div>
+            <div input-field>
+              <input type="password" ng-model="newUser.password" length="50">
+              <label>password</label>
+            </div>
+          </div>
+          <div class="modal-footer ">
+            <a id="signUpLink" href="" class=" modal-action left  waves-effect waves-green btn red " ng-click="signUpUser()">Sign-up</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- NG-VIEW -->
+  <div class="view">
+    <ng-view autoscroll="true">
+    </ng-view>
+  </div>
+  <!-- FOOTER -->
+  <footer class="page-footer orange">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Project info</h5>
+          <p class="grey-text text-lighten-4">This project was built for mainacademy examination</p>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="http://bn-dev.ru/">bn-dev.ru</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        Made by <a class="orange-text text-lighten-3" href="http://bn-dev.ru">Bondar Vadim</a>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
