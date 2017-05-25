@@ -1,5 +1,5 @@
 angular.module('materializeApp')
-    .config(function($routeProvider, $locationProvider, localStorageServiceProvider) {
+    .config(['$routeProvider','$locationProvider','localStorageServiceProvider', function($routeProvider, $locationProvider, localStorageServiceProvider) {
         localStorageServiceProvider
             .setPrefix('around')
             .setStorageType('localStorage')
@@ -7,7 +7,7 @@ angular.module('materializeApp')
         $locationProvider.hashPrefix('');
         $routeProvider
             .when("/", {
-                templateUrl: "./main.html",
+                templateUrl: "./views/main/main.html",
                 controller: "mainController",
                 resolve: {
                     apps: function(appService) {
@@ -19,7 +19,7 @@ angular.module('materializeApp')
 
 
         .when('/category/:name', {
-                templateUrl: "./modules/category/category.html",
+                templateUrl: "./views/category/category.html",
                 controller: "categoryController",
                 resolve: {
                     category: function($routeParams) {
@@ -32,12 +32,12 @@ angular.module('materializeApp')
 
             })
             .when("/addpost/add", {
-                templateUrl: "./modules/addpost/addpost.html",
+                templateUrl: "./views/addpost/addpost.html",
                 controller: "addpostController"
 
             })
             .when("/id/:postId", {
-                templateUrl: "./modules/post/post.html",
+                templateUrl: "./views/post/post.html",
                 controller: "postCtrl",
                 resolve: {
                     post: function($route, idService) {
@@ -49,7 +49,7 @@ angular.module('materializeApp')
                 }
             })
             .when("/admin", {
-                templateUrl: "./modules/auth/adminpage/adminpage.html",
+                templateUrl: "./views/auth/adminpage/adminpage.html",
                 controller: "adminController",
                 resolve: {
                     apps: function(adminService) {
@@ -69,7 +69,7 @@ angular.module('materializeApp')
 
             })
             .when("/user", {
-                templateUrl: "./modules/auth/userpage/userpage.html",
+                templateUrl: "./views/auth/userpage/userpage.html",
                 controller: "userController",
                 resolve: {
                     apps: function(userService) {
@@ -80,12 +80,12 @@ angular.module('materializeApp')
 
             })
             .when("/restricted", {
-                templateUrl: "./modules/auth/restricted/restricted.html",
+                templateUrl: "./views/auth/restricted/restricted.html",
 
 
             })
          .when("/search", {
-                templateUrl: "./modules/search/search.html",
+                templateUrl: "./views/search/search.html",
                 controller: "searchController",
 
                 resolve:{
@@ -100,4 +100,4 @@ angular.module('materializeApp')
 
 
 
-    });
+    }]);

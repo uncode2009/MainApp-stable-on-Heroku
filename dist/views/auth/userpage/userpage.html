@@ -1,0 +1,27 @@
+<!-- USER PAGE -->
+<div class="container">
+  <div class="horizontal">
+    <div class="card admincard ">
+      <div class="row">
+        <div class="col m12 s12">
+          <h1>This is userpage</h1>
+          <a href="#/addpost/add" class="waves-effect waves-light btn orange">Add post</a>
+          </div>
+        </div>
+          <div class="row"> 
+          <div class="col m12 s12">
+          <table>
+            <tr ng-repeat="card in cards">
+              <td><img ng-src="{{card.img}}"></td>
+              <td>{{card.title}}</td>
+              <td>{{card.category}}</td>
+              <td>{{card.version}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+

@@ -7,7 +7,6 @@ angular.module('materializeApp', [
 		'authModule',
 		'searchModule',
 		'ui.materialize',
-		'slick',
 		'LocalStorageModule',
 		'angularUtils.directives.dirPagination'
 

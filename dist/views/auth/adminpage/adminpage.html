@@ -1,0 +1,28 @@
+<!-- ADMIN PAGE -->
+<div class="container">
+  <div class="horizontal">
+    <div class="card admincard ">
+      <div class="row">
+        <div class="col m12 s12">
+          <h1>This is adminpage</h1>
+          <a href="#/addpost/add" class="waves-effect waves-light btn orange">Add post</a>
+          </div>
+        </div>
+          <div class="row"> 
+          <div class="col m12 s12">
+          <table>
+            <tr ng-repeat="card in cards">
+              <td><img ng-src="{{card.img}}"></td>
+              <td>{{card.title}}</td>
+              <td>{{card.category}}</td>
+              <td>{{card.version}}</td>
+              <td><a class="btn  waves-effect waves-light blue-grey lighten-5 grey-text">edit</a></td>
+              <td><a class="btn  waves-effect waves-light red" ng-click="deleteApp(this.card._id.$oid)">delete</a></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
